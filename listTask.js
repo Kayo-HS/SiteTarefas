@@ -13,6 +13,7 @@ form.addEventListener("submit", function(e){
 
     adcionaLinha();
     atualizaTabela();
+    salvarTarefa();
 
 
 });
@@ -74,3 +75,16 @@ botaoCancelar.addEventListener("click", function() {
     inputNomeTarefa.value = "";
     inputNomeTarefa.focus();
 });
+
+function salvarTarefa(){
+    let tarefa = document.getElementById('nome-tarefa').value
+    localStorage.setItem('nome-tarefa', tarefa);
+    exibirTarefa("Tarefa adicionada com sucesso!")
+}
+
+function exibirTarefa(mensagemSucesso){
+    let Tarefa = document.getElementById('tabela')
+    Tarefa.textContent = mensagemSucesso
+    
+}
+
