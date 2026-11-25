@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TaskDev</title>
+<link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+<div id="toasts" aria-live="polite"></div>
+<main id="auth" hidden></main>
+<div id="app" hidden>
+  <header class="top">
+    <h1>Task<span>Dev</span></h1>
+    <div class="right">
+      <span id="user-name"></span>
+      <button class="btn ghost" id="theme" aria-label="Alternar tema claro/escuro">◐</button>
+      <button class="btn ghost" id="logout">Sair</button>
+    </div>
+  </header>
+  <nav class="tabs" role="tablist" aria-label="Visões"></nav>
+  <div class="toolbar">
+    <div id="nav-ctrl">
+      <button class="btn ghost" id="prev" aria-label="Anterior">‹</button>
+      <button class="btn ghost" id="today">Hoje</button>
+      <button class="btn ghost" id="next" aria-label="Próximo">›</button>
+    </div>
+    <h2 id="label"></h2>
+    <button class="btn" id="new">+ Nova tarefa</button>
+  </div>
+  <section id="view" role="tabpanel" tabindex="0"></section>
+</div>
+<dialog id="modal">
+  <form method="dialog" novalidate>
+    <h3 id="modal-title">Nova tarefa</h3>
+    <label>Título<input name="title" required maxlength="80"></label>
+    <label>Descrição<textarea name="description" rows="2"></textarea></label>
+    <div class="row">
+      <label>Data<input type="date" name="date" required></label>
+      <label>Início<input type="time" name="start"></label>
+      <label>Fim<input type="time" name="end"></label>
+    </div>
+    <div class="row">
+      <label>Categoria<select name="category"></select></label>
+      <label>Prioridade<select name="priority"></select></label>
+    </div>
+    <p class="err" id="modal-err" role="alert"></p>
+    <div class="row actions">
+      <button type="button" class="btn danger" id="modal-del" hidden>Excluir</button>
+      <button type="button" class="btn ghost" id="modal-cancel">Cancelar</button>
+      <button type="submit" class="btn">Salvar</button>
+    </div>
+  </form>
+</dialog>
+<script type="module" src="./js/main.js"></script>
+</body>
+</html>
